@@ -16,8 +16,9 @@ namespace ai
 
         String& operator=(const String& other);
         String& operator=(String&& other) noexcept;
+        String& operator=(const char* cStr);
 
-        friend String operator+(const String& s1, const String& s2) {};
+        friend String operator+(const String& s1, const String& s2) { return {}; };
         friend std::ostream& operator<<(std::ostream& os, const String& str);
 
         void Reserve(size_t size);
@@ -26,8 +27,11 @@ namespace ai
 
         char* GetData() const { return _data; }
 
+        // Debug function.
+        void DebugPrint() const;
+
     private:
-        const size_t DELTA_CAPACITY = 29;
+        const size_t DELTA_CAPACITY = 20;
 
         char* _data;
         size_t _capacity = 15;

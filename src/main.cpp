@@ -1,14 +1,22 @@
 #include "pch.h"
 
 #include "ai/String.h"
+#include "Test.h"
 
 int main()
 {
-    ai::String str("jfksdfjjjjjjjjjjjjjjjjjjjjjjjjjj");
+    ai::Test test;
 
-    ai::String temp("hello");
+    test.TestDefaultConstructor();
+    test.TestCStringConstructor();
+    test.TestCopyConstructor();
+    test.TestMoveConstructor();
 
-    auto s2 = temp;
+    test.TestCopyAssignOperator();
+    test.TestMoveAssignOperator();
 
-    std::cout << str << std::endl;
+    test.TestSum();
+    test.TestConcatenateString();
+
+    return 0;
 }

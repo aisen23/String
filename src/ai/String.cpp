@@ -18,7 +18,19 @@ namespace ai
     String::~String() {
         free(_data);
     }
-        
+
+    void String::Clear() {
+        if (_size == 1 && _data[0] == '\0') {
+            return;
+        }
+
+        free(_data);
+        _data = static_cast<char*>(malloc(1));
+        _data[0] = '\0';
+        _size = 0;
+        _capacity = DELTA_CAPACITY;
+    }
+
     String::String(const char* cStr)
         : _size(strlen(cStr))
     {
@@ -83,6 +95,18 @@ namespace ai
         return *this;
     }
 
+    String& String::operator=(const char* cStr) {
+        free(_data);
+
+        _size = strlen(cStr);
+        _capacity = _size + DELTA_CAPACITY;
+
+        _data = static_cast<char*>(malloc(_capacity + 1));
+        memcpy(_data, cStr, _size + 1);
+
+        return *this;
+    }
+
     void String::Resize(size_t newSize) {
         if (newSize > _capacity) {
             _capacity = newSize + DELTA_CAPACITY;
@@ -120,5 +144,11 @@ namespace ai
     {
         os << str.GetData();
         return os;
+    }
+
+    void String::DebugPrint() const {
+#ifdef DEBUG_BUILD
+        std::cout << "Data: " << _data << "\nsize: " << _size << "\ncapacity: " << _capacity << "\n\n";
+#endif // DEBUG_BUILD
     }
 } // ai
