@@ -49,13 +49,6 @@ namespace ai
     void Test::TestMoveConstructor() const {
         std::cout << "Test move constructor: " << std::endl;
 
-        std::cout << "Move temp string:\n";
-        {
-            String copy = "Long temp string, long temp string, long temp string, long temp string, long temp string";
-            std::cout << "Copy of string:\n";
-            copy.DebugPrint();
-        }
-
         std::cout << "Move source string:\n";
         {
             String src = "Another string. Another string. Another string. Another string. Another string.. Another string.. Another string.";
@@ -94,7 +87,7 @@ namespace ai
         src.DebugPrint();
 
         copy = src;
-        std::cout << "Source string before copy:\n";
+        std::cout << "Source string after copy:\n";
         src.DebugPrint();
 
         std::cout << "Copy of string:\n";
@@ -133,7 +126,7 @@ namespace ai
         std::cout << "Moved string:\n";
         moved.DebugPrint();
 
-        moved = "Temp string. Temp String. Temp String";
+        moved = String("Temp string. Temp String. Temp String");
         std::cout << "Move temp string:\n";
         moved.DebugPrint();
 
@@ -141,69 +134,82 @@ namespace ai
     }
 
     void Test::TestSum() const {
-        //std::cout << "Test sum of two strings:\n";
+        std::cout << "Test sum of two strings:\n";
 
-        //String str1("The first string.");
-        //std::cout << "1:\n";
-        //str1.DebugPrint();
+        String str1("The first str.");
+        std::cout << "1:\n";
+        str1.DebugPrint();
 
-        //String str2("Hello!");
-        //std::cout << "2:\n";
-        //str2.DebugPrint();
+        String str2(" Hello!!!!!!!!!!!!@!@!");
+        std::cout << "2:\n";
+        str2.DebugPrint();
 
-        //auto sum = str1 + str2;
-        //std::cout << "Sum:\n";
-        //sum.DebugPrint();
-
-
-        //str1.Clear();
-        //std::cout << "1:\n";
-        //str1.DebugPrint();
-
-        ///*str2 = "Hello, Brooooooooooooooooooooooooooo!";
-        //std::cout << "2:\n";
-        //str2.DebugPrint();*/
-
-        //sum = str1 + str2;
-        //std::cout << "Sum:\n";
-        //sum.DebugPrint();
+        auto sum = str1 + str2;
+        std::cout << "Sum:\n";
+        sum.DebugPrint();
 
 
-        ///*str1 = "Hello, Bro!";
-        //std::cout << "1:\n";
-        //str1.DebugPrint();
+        str1.Clear();
+        std::cout << "1:\n";
+        str1.DebugPrint();
 
-        //str2 = "";
-        //std::cout << "2:\n";
-        //str2.DebugPrint();*/
+        str2 = "Hello, Brooooooooooooooooooooooooooo!";
+        std::cout << "2:\n";
+        str2.DebugPrint();
 
-        //sum = str1 + str2;
-        //std::cout << "Sum:\n";
-        //sum.DebugPrint();
+        sum = str1 + str2;
+        std::cout << "Sum:\n";
+        sum.DebugPrint();
 
-        //std::cout << "\n\n";
+        sum = String("helo melo!") + String("bro, mother, daddy");
+        std::cout << "Sum:\n";
+        sum.DebugPrint();
+
+        sum = String("helo melo melo melo melo!") + "bro, mother, daddy, uncle, cousine!";
+        std::cout << "Sum:\n";
+        sum.DebugPrint();
+
+        std::cout << "\n\n";
     }
     
     void Test::TestConcatenateString() const {
-       // std::cout << "Test sum of two strings:\n";
+        std::cout << "Test sum of two strings:\n";
 
-       // String str1("Hello, Broooo!");
-       // std::cout << "Str1:\n";
-       // str1.DebugPrint();
+        String str1("Hello, Broooo!");
+        std::cout << "Str1:\n";
+        str1.DebugPrint();
 
-       // String str2(" Hello, Sister!");
-       // std::cout << "Str2:\n";
-       // str2.DebugPrint();
+        str1 += " Hello, Daddy!";
+        std::cout << "Str1:\n";
+        str1.DebugPrint();
 
-       ///* str1 += str2;
-       // std::cout << "Str1 after concatenate:\n";
-       // str1.DebugPrint();
+        String str2(" Hello, Sister!");
+        std::cout << "Str2:\n";
+        str2.DebugPrint();
 
-       // str1 += " Hello, Daddy!";
-       // std::cout << "Str1:\n";
-       // str1.DebugPrint();*/
+        str1 += str2;
+        std::cout << "Str1 after concatenate:\n";
+        str1.DebugPrint();
 
-       // std::cout << "\n\n";
+        std::cout << "\n\n";
+    }
+
+    void Test::TestClear() const {
+        std::cout << "Test Clear function:\n";
+
+        String str("Bla bla bla bla bla bla bla bla");
+        std::cout << "String before clear:\n";
+        str.DebugPrint();
+        str.Clear();
+        std::cout << "String after clear:\n";
+        str.DebugPrint();
+
+        str += "ksjdlfkjsdlfjsldjflksjldfjslkjdflkjslkdfjlksdjfljslkdjflsjdlfjsldfj";
+        std::cout << "String after concatenating:\n";
+        str.DebugPrint();
+        str.Clear();
+        std::cout << "String after clear:\n";
+        str.DebugPrint();
     }
 } // ai
 

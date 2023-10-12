@@ -17,6 +17,8 @@ namespace ai
 
         void TestSum() const;
         void TestConcatenateString() const;
+
+        void TestClear() const;
     };
 } // ai
 

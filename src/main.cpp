@@ -3,8 +3,17 @@
 #include "ai/String.h"
 #include "Test.h"
 
+void TestString();
+
 int main()
 {
+    TestString();
+
+    return 0;
+}
+
+void TestString() {
+#ifdef DEBUG_BUILD
     ai::Test test;
 
     test.TestDefaultConstructor();
@@ -18,5 +27,6 @@ int main()
     test.TestSum();
     test.TestConcatenateString();
 
-    return 0;
+    test.TestClear();
+#endif
 }
