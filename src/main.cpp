@@ -1,6 +1,14 @@
 #include "pch.h"
 
+#include "ai/String.h"
+
 int main()
 {
-    std::cout << "HELLO, BRO!!!" << std::endl;
+    ai::String str("jfksdfjjjjjjjjjjjjjjjjjjjjjjjjjj");
+
+    ai::String temp("hello");
+
+    auto s2 = temp;
+
+    std::cout << str << std::endl;
 }
