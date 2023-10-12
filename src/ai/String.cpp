@@ -36,12 +36,11 @@ namespace ai
         memcpy(_data, other.GetData(), _size + 1);
     }
         
-    String::String(String&& other) noexcept {
-        _size = other._size;
-        _capacity = other._capacity;
-
-        _data = other._data;
-
+    String::String(String&& other) noexcept 
+        : _size(other._size),
+        _capacity(other._capacity),
+        _data(other._data)
+    {
         other._capacity = DELTA_CAPACITY;
         other._size = 0;
         other._data = static_cast<char*>(malloc(other._capacity + 1));
