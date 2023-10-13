@@ -204,12 +204,45 @@ namespace ai
 
         return *this;
     }
+    
+    bool String::operator<(const String& other) const {
+        return std::strcmp(_data, other._data) < 0;
+    }
+    
+    bool String::operator>(const String& other) const {
+        return std::strcmp(_data, other._data) > 0;
+    }
+
 
     std::ostream& operator<<(std::ostream& os, const String& str)
     {
         os << str.GetData();
         return os;
     }
+
+    std::istream& operator>>(std::istream& is, String& str) {
+        const size_t MAX_LEN = 1024;
+        char buffer[MAX_LEN];
+
+        is >> buffer;
+
+        size_t length = strlen(buffer);
+
+        if (length >= MAX_LEN) {
+            throw std::runtime_error("Input Error: Buffer overflow detected.");
+        }
+
+        char* data = new char[MAX_LEN + 1];
+
+        strncpy(data, buffer, length);
+        data[length] = '\0';
+
+        str = data;
+
+        free(data);
+
+        return is;
+    } 
     
     ai::String operator+(const String& s1, const String& s2) {
         size_t capacity = max(s1.Capacity(), s2.Capacity());

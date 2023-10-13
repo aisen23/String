@@ -22,8 +22,13 @@ namespace ai
         String& operator+=(const char* cStr);
         String& operator+(const char* cStr);
 
+        bool operator<(const String& r) const;
+        bool operator>(const String& r) const;
+
         friend String operator+(const String& s1, const String& s2);
+
         friend std::ostream& operator<<(std::ostream& os, const String& str);
+        friend std::istream& operator>>(std::istream& is, String& str);
 
         void Reserve(size_t size);
         void Resize(size_t size);
