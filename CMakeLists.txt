@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.23)
 project(ai_string)
 set(CMAKE_BUILD_TYPE Release)
 
-set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD 11)
 
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")

@@ -51,8 +51,9 @@ int main()
         std::cout << str << "\n";
     }
 
-    std::cout << "\n\nPress any key to continue.\n";
-    std::cin >> N;
+    std::cout << "\n\n";
+
+    system("pause");
 
     return EXIT_SUCCESS;
 }
